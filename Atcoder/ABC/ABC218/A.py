@@ -11,17 +11,18 @@ MOD = 998244353
 # s, k = input().split()
 # k = int(k)
 
-## type
-# int()
-# chr()
-# ord()
-
 ## sort by lambda 
 # b.append([a[itra], itra+1])
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    n = int(input())
+    s = input()
+
+    if s[n-1] == "o":
+        print("Yes")
+    else:
+        print("No")
 
 if __name__ == '__main__':
     main()

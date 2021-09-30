@@ -21,7 +21,17 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    n = int(input())
+    a = list(map(int, input().split()))
+
+    ans = 0
+    for numa in a:
+        if numa<=10:
+            continue
+        else:
+            ans += numa - 10
+    
+    print(ans)
 
 if __name__ == '__main__':
     main()

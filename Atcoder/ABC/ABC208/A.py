@@ -21,7 +21,11 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    a, b = map(int, input().split())
+    if a<=b and b<=6*a:
+        print("Yes")
+    else:
+        print("No")
 
 if __name__ == '__main__':
     main()

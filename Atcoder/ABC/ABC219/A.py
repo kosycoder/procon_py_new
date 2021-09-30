@@ -21,7 +21,16 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    x = int(input())
+
+    if x<=39:
+        print(40-x)
+    elif 40<=x and x<70:
+        print(70-x)
+    elif 70<=x and x<90:
+        print(90-x)
+    else:
+        print("expert")
 
 if __name__ == '__main__':
     main()

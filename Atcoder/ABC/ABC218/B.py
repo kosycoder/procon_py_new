@@ -11,17 +11,14 @@ MOD = 998244353
 # s, k = input().split()
 # k = int(k)
 
-## type
-# int()
-# chr()
-# ord()
-
 ## sort by lambda 
 # b.append([a[itra], itra+1])
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    p = list(map(int, input().split()))
+    for itrp in p:
+        print(chr(ord('a') + itrp - 1), end="")
 
 if __name__ == '__main__':
     main()

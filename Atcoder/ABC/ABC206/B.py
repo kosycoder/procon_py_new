@@ -21,7 +21,14 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    n = int(input())
+    ans = 0
+    while(1):
+        if(ans*(ans+1)//2>=n):
+            print(ans)
+            break
+        else:
+            ans += 1
 
 if __name__ == '__main__':
     main()

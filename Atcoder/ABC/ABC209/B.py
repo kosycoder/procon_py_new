@@ -21,7 +21,14 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    n, x = map(int, input().split())
+    a = list(map(int, input().split()))
+    A = sum(a) - n//2
+
+    if(A<=x):
+        print("Yes")
+    else:
+        print("No")
 
 if __name__ == '__main__':
     main()

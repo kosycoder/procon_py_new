@@ -21,7 +21,17 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    n = int(input())
+    s = input()
+    
+    cnt = 0
+    while(1-int(s[cnt])):
+        cnt += 1
 
+    if cnt%2 == 0:
+        print("Takahashi")
+    else:
+        print("Aoki")
+    
 if __name__ == '__main__':
     main()

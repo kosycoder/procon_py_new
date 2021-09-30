@@ -21,7 +21,19 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    n = int(input())
+    a = list(map(int, input().split()))
+    a_tmp = []
+    for itrn in range(len(a)):
+        a_tmp.append(0)
+
+    for itrn in range(n):
+        if a_tmp[a[itrn]-1] == 0:
+            a_tmp[a[itrn]-1] += 1
+        else:
+            print("No")
+            quit()
+    print("Yes")
 
 if __name__ == '__main__':
     main()

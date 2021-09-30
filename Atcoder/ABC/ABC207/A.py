@@ -21,7 +21,8 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    a, b, c = map(int, input().split())
+    print(max(a+b, b+c, c+a))
 
 if __name__ == '__main__':
     main()

@@ -1,6 +1,6 @@
 import sys
 
-# from atcoder.math import convolution
+from math import factorial
 
 MOD = 998244353
 
@@ -21,7 +21,13 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    P = int(input())
+    answer = 0
+    for i in range(10, 0, -1):
+        while factorial(i) <= P:
+            answer += 1
+            P -= factorial(i)
+    print(answer)
 
 if __name__ == '__main__':
     main()

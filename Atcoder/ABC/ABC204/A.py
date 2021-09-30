@@ -21,7 +21,11 @@ MOD = 998244353
 # b_sorted = sorted(b, key=lambda x:(x[0]))
 
 def main() -> None:
-    print(1)
+    x, y = map(int, input().split())
+    if x == y:
+        print(x)
+    else:
+        print(3-x-y)
 
 if __name__ == '__main__':
     main()
