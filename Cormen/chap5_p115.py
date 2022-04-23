@@ -1,0 +1,2 @@
+def HireAssistant(n):
+    
