@@ -18,6 +18,8 @@ def input_intarray():
 
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
+INF = int(1e18)
+
 n = int(input())
 m = int(input())
 a = int(input())
@@ -33,7 +35,9 @@ for i in range(c):
     M[x][y] = w
     M[y][x] = w
 
-print(M)
+dp = [[INF] * m for _ in range(1<<n)]
+
+def solve():
 
 # 2
 # 4
@@ -45,5 +49,3 @@ print(M)
 # 1 4 2
 # 2 3 3
 # 2 4 5
-
-
