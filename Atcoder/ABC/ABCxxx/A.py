@@ -1,5 +1,5 @@
-def sort(l, num, flg):
-    l = sorted(l, key=lambda x: x[num], reverse=flg)
+def sort(l, num = 0, revflg = False):
+    l = sorted(l, key=lambda x: x[num], reverse=revflg)
     return l
 
 def YesNo(flg):
