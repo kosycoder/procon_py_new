@@ -17,6 +17,12 @@ def sieve(n):
                     break
                 is_prime[j] = False
                 j += i
-    return p
+    
+    ans = []
+    for i in range(2,n+1):
+        if is_prime[i]:
+            ans.append(i)
+
+    return p, ans
 
 print(sieve(n))

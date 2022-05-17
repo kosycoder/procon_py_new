@@ -1,6 +1,4 @@
-def DEBUG(debugoutput, flg = False):
-    if flg:
-        print(debugoutput)
+from collections import defaultdict
 
 def sort(l, num = 0, revflg = False):
     l = sorted(l, key=lambda x: x[num], reverse=revflg)
@@ -19,4 +17,16 @@ def input_intarray():
 
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
-DEBUGFLG = False
+W = int(input())
+
+def div(n):
+    res = []
+    while n >= 1:
+        res.append(n)
+        n = n // 2
+
+    return res
+
+dic = {}
+for i in range(1,W+1):
+    mlist = div(i)

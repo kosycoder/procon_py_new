@@ -39,24 +39,36 @@ def solve():
     for i in range(N):
         events.append([x[i]-r[i], i])
         events.append([x[i]+r[i], i+N])
-    
-    sort(events)
+    events = sort(events)
 
-    outers = {}
+    outers = []
     res = []
     for i in range(len(events)):
         id = events[i][1] % N
         if events[i][1] < N:
-            bisect.bisect_left(y[id], id)
+            it = bisect.bisect_left(outers, [y[id], id])
+            if it != len(outers)-1 and inside(id, it[1]):
+                continue
+            if it != 0 and inside(id, it[1]):
+                continue
+            res.push_back(id)
+            outers.popitem([y[id], id])
         else:
-            outers.popitem(y[id])
+            outers.popitem([y[id], id])
     
     sort(events)
-
     print(len(res))
-
     for i in range(len(res)):
         if i + 1 == len(res):
             print(res[i])
         else:
             print(res[i], end=" ")
+
+solve()
+
+# 5
+# 0 -2 1
+# 0 3 3
+# 0 0 10
+# 0 1.5 1
+# 50 50 10

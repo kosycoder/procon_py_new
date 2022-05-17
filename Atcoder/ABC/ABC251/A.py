@@ -1,7 +1,3 @@
-def DEBUG(debugoutput, flg = False):
-    if flg:
-        print(debugoutput)
-
 def sort(l, num = 0, revflg = False):
     l = sorted(l, key=lambda x: x[num], reverse=revflg)
     return l
@@ -19,4 +15,12 @@ def input_intarray():
 
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
-DEBUGFLG = False
+S = input()
+
+if len(S) == 3:
+    print(S+S)
+elif len(S) == 2:
+    print(S+S+S)
+else:
+    print(S+S+S+S+S+S)
+    
