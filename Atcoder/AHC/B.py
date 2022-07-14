@@ -20,3 +20,21 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+D = int(input())
+c = input_intarray()
+s = []
+for _ in range(D):
+    si = input_intarray()
+    s.append(si)
+
+ans = 0
+dlast = [0] * 26
+for d in range(D):
+    t = int(input()) - 1
+    dlast[t] = d + 1
+    ans += s[d][t]
+    for alphabet in range(26):
+        DEBUG(c[alphabet]*(d+1-dlast[alphabet]))
+        ans -= c[alphabet]*(d+1-dlast[alphabet])
+    print(ans)

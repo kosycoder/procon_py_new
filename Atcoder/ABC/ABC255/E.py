@@ -1,3 +1,5 @@
+import bisect
+
 def DEBUG(debugoutput):
     if DEBUGFLG:
         print(debugoutput)
@@ -20,3 +22,7 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N, M = map(int,input().split())
+S = input_intarray()
+X = input_intarray()

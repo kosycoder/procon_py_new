@@ -1,5 +1,5 @@
-def DEBUG(debugoutput):
-    if DEBUGFLG:
+def DEBUG(debugoutput, flg = False):
+    if flg:
         print(debugoutput)
 
 def sort(l, num = 0, revflg = False):
@@ -20,3 +20,9 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N, X = map(int,input().split())
+num = X//N-1+ord('A')
+if X % N != 0:
+    num += 1
+print(chr(num))

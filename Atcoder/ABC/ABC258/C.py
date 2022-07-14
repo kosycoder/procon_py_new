@@ -1,3 +1,6 @@
+from itertools import accumulate
+
+
 def DEBUG(debugoutput):
     if DEBUGFLG:
         print(debugoutput)
@@ -20,3 +23,17 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N, Q = map(int,input().split())
+S = input()
+accum = 0
+for _ in range(Q):
+    t, x = map(int,input().split())
+    if t == 1:
+        accum -= x
+        DEBUG(accum)
+    elif t == 2:
+        num = (x + accum - 1) % N
+        DEBUG(x)
+        DEBUG(accum)
+        print(S[num])

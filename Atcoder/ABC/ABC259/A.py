@@ -20,3 +20,11 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N, M, X, T, D = map(int,input().split())
+
+height = []
+if M > X:
+    print(T)
+else:
+    print(T-D*(X-M))

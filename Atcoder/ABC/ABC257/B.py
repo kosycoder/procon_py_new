@@ -20,3 +20,26 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N, K, Q = map(int,input().split())
+A = input_intarray()
+L = input_intarray()
+DEBUG(A)
+DEBUG(L)
+
+for valL in L:
+    valL -= 1
+    DEBUG(valL)
+    DEBUG(A[valL])
+    if A[valL] == N:
+        DEBUG(A)
+        continue
+
+    if valL == K - 1:
+        A[valL] += 1
+    else:
+        if A[valL]+1 < A[valL+1]:
+            A[valL] += 1
+    DEBUG(A)
+
+print(*A)

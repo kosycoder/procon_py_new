@@ -20,3 +20,10 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+K = int(input())
+print(str(int(21+K//60))+":",end="")
+if int(K%60)<=9:
+    print("0"+str(int(K%60)))
+else:
+    print(str(int(K%60)))

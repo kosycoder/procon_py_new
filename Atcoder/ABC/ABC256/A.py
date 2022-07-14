@@ -1,5 +1,5 @@
-def DEBUG(debugoutput):
-    if DEBUGFLG:
+def DEBUG(debugoutput, flg = False):
+    if flg:
         print(debugoutput)
 
 def sort(l, num = 0, revflg = False):
@@ -20,3 +20,9 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N = int(input())
+ans = 1
+for i in range(N):
+    ans *= 2
+print(ans)
