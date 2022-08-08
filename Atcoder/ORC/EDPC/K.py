@@ -20,3 +20,19 @@ def input_intarray():
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
+
+N, K = map(int,input().split())
+a = input().split()
+a = [int(i) for i in a]
+
+dp = [False] * (K+1)
+for i in range(1,K+1):
+    for j in range(0,N):
+        if(i-a[j]>=0 and dp[i-a[j]]==False):
+            dp[i] = True
+
+if dp[K]:
+    print("First")
+else:
+    print("Second")
+

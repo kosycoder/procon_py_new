@@ -12,11 +12,7 @@ def YesNo(flg):
     else:
         print("No")
 
-def input_intarray():
-    arr = input().split()
-    arr = [int(i) for i in arr]
-    return arr
-
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
+# MOD = 998244353
 
 DEBUGFLG = False

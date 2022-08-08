@@ -17,37 +17,64 @@ def input_intarray():
     arr = [int(i) for i in arr]
     return arr
 
+def calc_score(X):
+    score = 0
+    last = [-1] * SIZE
+    for day in range(D):
+        type = X[day]
+        score += s[day][type]
+        last[type] = day
+        score -= sum(c[j] * (day - last[j]) for j in range(SIZE))
+    return score
+
+def prev_day(X, day, type):
+    for i in range(day - 1, -1, -1):
+        if X[i] == type:
+            return i
+    return -1
+
+def next_day(X, day, type):
+    for i in range(day + 1, D):
+        if X[i] == type:
+            return i
+    return D
+
+def calc_scorediff(X, day, type):
+    diff = 0
+
+    # delete X[day]
+    diff -= s[day][X[day]]
+    prv, nxt = prev_day(X, day, X[day]), next_day(X, day, X[day])
+    diff += c[X[day]] * (prv - day) * (nxt - day)
+
+    # insert type
+    diff += s[day][type]
+    prv, nxt = prev_day(X, day, type), next_day(X, day, type)
+    diff += c[type] * (day - prv) * (nxt - day)
+
+    return diff
+
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
 
-D = int(input())
-c = input_intarray()
-csum = sum(c)
-s = []
-for _ in range(D):
-    si = input_intarray()
-    s.append(si)
+SIZE = 26
 
-tday = []
-for _ in range(D):
-    tday.append(int(input()))
+D = int(input())
+c = [*map(int, input().split())]
+s = [[*map(int, input().split())] for _ in range(D)]
+
+t = []
+for valD in range(D):
+    tin = int(input()) - 1
+    t.append(tin)
 
 M = int(input())
-dq = []
-for _ in range(M):
-    di, qi = map(int,input().split())
-    dq.append((di, qi))
+dq = [[*map(int, input().split())] for _ in range(M)]
 
+score = calc_score(t)
 for m in range(M):
-    ans = 0
-    dlast = [0] * 26
-    tday[dq[m][0]-1] = dq[m][1]
-    for d in range(D):
-        alphabettoday = tday[d] - 1
-        ans += s[d][alphabettoday]
-        ans -= c[alphabettoday]*(d+1-dlast[alphabettoday])*(d-dlast[alphabettoday])//2
-        dlast[alphabettoday] = d + 1
-    for alphabet in range(26):
-        ans -= c[alphabet]*(d+2-dlast[alphabet])*(d+1-dlast[alphabet])//2
-    print(ans)
+    scorediff = calc_scorediff(t, dq[m][0]-1, dq[m][1]-1)
+    t[dq[m][0]-1] = dq[m][1]-1
+    score += scorediff
+    print(score)

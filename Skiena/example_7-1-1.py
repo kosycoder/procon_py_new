@@ -16,11 +16,11 @@ def make_perm(n, perm):
         sk = [True, False]
         for x in sk:
             perm.append(x)
-            print("append ",end="")
-            print(x)
+            # print("append ",end="")
+            # print(x)
             make_perm(n, perm)
             t = perm.pop()
-            print("pop ",end="")
-            print(t)
+            # print("pop ",end="")
+            # print(t)
 
 make_perm(n, [])

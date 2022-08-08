@@ -17,24 +17,29 @@ def input_intarray():
     arr = [int(i) for i in arr]
     return arr
 
+def calc_score(X):
+    score = 0
+    last = [-1] * SIZE
+    for day in range(D):
+        type = X[day]
+        score += s[day][type]
+        last[type] = day
+        score -= sum(c[j] * (day - last[j]) for j in range(SIZE))
+        print(score) ##########
+    return score
+
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 DEBUGFLG = False
 
-D = int(input())
-c = input_intarray()
-s = []
-for _ in range(D):
-    si = input_intarray()
-    s.append(si)
+SIZE = 26
 
-ans = 0
-dlast = [0] * 26
-for d in range(D):
-    t = int(input()) - 1
-    dlast[t] = d + 1
-    ans += s[d][t]
-    for alphabet in range(26):
-        DEBUG(c[alphabet]*(d+1-dlast[alphabet]))
-        ans -= c[alphabet]*(d+1-dlast[alphabet])
-    print(ans)
+D = int(input())
+c = [*map(int, input().split())]
+s = [[*map(int, input().split())] for _ in range(D)]
+
+tvec = []
+for valD in range(D):
+    tin = int(input()) - 1
+    tvec.append(tin)
+calc_score(tvec)
