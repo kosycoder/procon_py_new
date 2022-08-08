@@ -29,27 +29,16 @@ perm = []
 # 順列の生成
 def make_perm(n, m):
     if n == m:
-        a = [] 
-        for valperm in perm:
-            a.append(valperm)
-        a = sorted(a)
-        if a == perm:
-            print(*perm)
+        print(*perm)
     else:
         m = m + 1
         sk = range(1, n + 1)
         for x in sk:
-            if x in perm:
-                continue
             if len(perm)!=0:
                 if x <= perm[len(perm)-1]:
                     continue
             perm.append(x)
-            # print("append ",end="")
-            # print(x)
             make_perm(n, m)
-            t = perm.pop()
-            # print("pop ",end="")
-            # print(t)
+            perm.pop()
 
 make_perm(M, M-N)

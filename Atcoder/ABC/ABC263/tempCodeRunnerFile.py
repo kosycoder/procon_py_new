@@ -1,3 +1,5 @@
+from collections import deque
+
 def DEBUG(debugoutput):
     if DEBUGFLG:
         print(debugoutput)
@@ -17,27 +19,32 @@ def input_intarray():
     arr = [int(i) for i in arr]
     return arr
 
+def bfs(s):
+    d = [None] * N
+    p = [None] * N
+    d[s] = 0
+    p[s] = -1
+    queue = deque([s])
+    while queue:
+        u = queue.popleft()
+        for v in g[u]:
+            if d[v] is None:
+                d[v] = d[u] + 1
+                p[v] = u
+                queue.append(v)
+    return d, p
+
 # dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
-DEBUGFLG = True
-MOD = 998244353
+DEBUGFLG = False
 
 N = int(input())
-Atmp = input().split()
-Atmp = [int(i) for i in Atmp]
-A = [0, *Atmp]
-dp = [0] * (N+1)
-dpS = [0]
-for i in range(N):
-    dpS.append((dpS[i]*pow(A[N-i-1],MOD-2,MOD))%MOD)
-    dpS[i+1] += (A[N-i-1]+1)*pow(A[N-i-1],MOD-2,MOD)%MOD
-    dpS[i+1] %= MOD
-dpS.reverse()
+P = input().split()
+P = [int(int(i)-1) for i in P]
+g = [[] for _ in range(N)]
+for i in range(N-1):
+    g[P[i]].append(i+1)
 
-for i in range(N-1,0,-1):
-    dp[i] = dpS[i+1] - dpS[i-A[i]+1]
-    # dp[i] += (A[i]+1)*pow(A[i],MOD-2,MOD)%MOD
-    # dp[i] %= MOD
+d, p = bfs(0)
 
-DEBUG(dp)
-print(dp[1])
+print(d[N-1])
